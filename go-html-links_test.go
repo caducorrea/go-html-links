@@ -18,6 +18,7 @@ func TestAll(t *testing.T) {
 	data := []TestData{
 		{strings.NewReader(``), []string{}, false},
 		{strings.NewReader(`<html><body><a href='https://www.google.com'>Google</a></body></html>`), []string{"https://www.google.com"}, false},
+		{strings.NewReader(`<html><body><a href='#test'>Google</a></body></html>`), []string{""}, false},
 		{strings.NewReader(`<html><body><a href='https://www.google.com'>Google</a><a href='https://www.google.com'>Google</a></body></html>`), []string{"https://www.google.com"}, false},
 		{strings.NewReader(`<html><body><a href='https://www.google.com'>Google</a><a href='https://www.facebook.com'>Facebook</a></body></html>`), []string{"https://www.google.com", "https://www.facebook.com"}, false},
 	}

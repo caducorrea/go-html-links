@@ -9,6 +9,7 @@ import (
 	"golang.org/x/net/html"
 )
 
+// All to get all link from a string content
 func All(content io.Reader) []string {
 	links := []string{}
 	col := []string{}
