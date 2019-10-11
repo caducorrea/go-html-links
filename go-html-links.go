@@ -6,6 +6,7 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/caducorrea/gontains"
 	"golang.org/x/net/html"
 )
 
@@ -49,20 +50,9 @@ func trimHash(l string) string {
 	return l
 }
 
-func check(sl []string, s string) bool {
-	var check bool
-	for _, str := range sl {
-		if str == s {
-			check = true
-			break
-		}
-	}
-	return check
-}
-
 func resolv(sl *[]string, ml []string) {
 	for _, str := range ml {
-		if check(*sl, str) == false {
+		if gontains.Gontains(*sl, str) == false {
 			*sl = append(*sl, str)
 		}
 	}
