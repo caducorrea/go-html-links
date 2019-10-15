@@ -1,7 +1,6 @@
 package links
 
 import (
-	"fmt"
 	"io"
 	"strconv"
 	"strings"
@@ -26,7 +25,6 @@ func All(content io.Reader) []string {
 		if tokenType == html.StartTagToken && token.DataAtom.String() == "a" {
 			for _, attr := range token.Attr {
 				if attr.Key == "href" {
-					fmt.Println(attr.Val)
 					tl := trimHash(attr.Val)
 					col = append(col, tl)
 					resolv(&links, col)
